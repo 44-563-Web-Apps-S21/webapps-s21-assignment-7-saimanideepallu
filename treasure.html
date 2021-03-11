@@ -90,7 +90,7 @@
         
     let ids = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]
     let clickCount = 0
-    let treasureLocation = 18
+    let treasureLocation = Math.floor(Math.random()*25)
     function makeGuess(position){
         id = ids[position]
         img = document.getElementById(id)
@@ -125,6 +125,12 @@ function distance(pos1,pos2)
         }
     }
     return (Math.abs(x1-x2)+Math.abs(y1-y2))
+    function newGame(){
+            clickCount =0
+            let treasureLocation = Math.random(0,24)
+            document.getElementById("clicks").innerHTML="Number of clicks is "+clickCount
+            document.getElementById("distance").innerHTML="Distance is Unknown"
+        }
 
 }
 
