@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html> <head> 
+    <title>My Listy Page</title>
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+    <h1>Sai ManiDeep Allu builds a list</h1>
+		<div class="flex-container" id="target">
+		  <div class ="listy">row item 1</div>   
+		  <div class ="listy">row item 2</div>  
+		  <div class ="listy">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+        <input id="1" type = "text">
+		<button onclick="makeNewDiv()">Add one</button>
+	
+	
+</body>
+<script>
+	function makeNewDiv(){
+		
+        let flag =0
+        var listyItems = document.getElementsByClassName("listy")   
+		let element = document.createElement("div") 
+		element.innerHTML = document.getElementById("1").value
+        element.setAttribute("class","listy")    
+        if(listyItems.length > 8){
+        for(j of listyItems){
+            if(j.innerHTML ==document.getElementById("1").value ){
+            j.remove()
+            console.log("We are getting rid of duplicates")
+            flag = 1
+            break
+        }
+            }
+            if(flag == 0){
+                index = Math.floor(Math.random()*8)
+            listyItems[index].remove()
+        }  
+        }
+		document.getElementById('target').appendChild(element)
+        
+		
+	}
+</script>
+</html>	
